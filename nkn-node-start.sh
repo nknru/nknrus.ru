@@ -15,7 +15,6 @@ apt -y upgrade
 apt -y install unzip vnstat htop screen mc
 
 username="nkn"
-websource="https://nkn.org/ChainDB_pruned_latest.tar.gz"
 config="https://nknrus.ru/nkn/config.tar"
 
 useradd -m -p "pass" -s /bin/bash "$username" > /dev/null 2>&1
@@ -44,7 +43,7 @@ DIR="/home/$username/nkn-commercial/services/nkn-node/"
                         cd $DIR > /dev/null 2>&1
                         rm config.json > /dev/null 2>&1
                         rm -Rf ChainDB > /dev/null 2>&1
-  			                wget -O - "$config" -q --show-progress | tar -xf -
+  			wget -O - "$config" -q --show-progress | tar -xf -
                         chown -R $username:$username wallet.* > /dev/null 2>&1
                         chown -R $username:$username config.* > /dev/null 2>&1
                         printf "NKNRUS.ru.................................... Выполнено! Удачного майнинга!\n"
